@@ -141,6 +141,10 @@ func (p *painter) drawObject(o fyne.CanvasObject, pos fyne.Position, frame fyne.
 		p.drawGradient(obj, p.newGlLinearGradientTexture, pos, frame)
 	case *canvas.RadialGradient:
 		p.drawGradient(obj, p.newGlRadialGradientTexture, pos, frame)
+	default:
+		if painter, ok := obj.(fyne.CustomPainter); ok {
+			painter.CustomDraw(pos, frame)
+		}
 	}
 }
 

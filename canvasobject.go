@@ -36,6 +36,10 @@ type CanvasObject interface {
 	Refresh()
 }
 
+type CustomPainter interface {
+	CustomDraw(pos Position, frame Size)
+}
+
 // Disableable describes any [CanvasObject] that can be disabled.
 // This is primarily used with objects that also implement the Tappable interface.
 type Disableable interface {
